@@ -1,0 +1,9 @@
+Zebruh (hearts):
+  "(.+)": "♥ \\g<1> ♥"
+Zebruh (diamonds):
+  "(.+)": "♦ \\g<1> ♦"
+Zebruh (clubs):
+  "(.+)": "♣ \\g<1> ♣"
+Zebruh (spades):
+  "(.+)": "♠ \\g<1> ♠"
+
