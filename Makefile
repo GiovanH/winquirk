@@ -14,10 +14,11 @@ clean:
 exe: $(addprefix bin/,${exec_targets})
 
 bin/%.exe: %.py
+	mkdir -p bin
 	${PYTHON} -m PyInstaller \
 		--onefile \
 		--console \
-		--distpath ../bin \
+		--distpath bin \
 		--workpath build \
 		--specpath build \
 		--name $(notdir $@) \
