@@ -21,6 +21,11 @@ loghandler_file.setFormatter(f_format)
 logger.addHandler(loghandler_file)
 
 
+def makeDemoYaml():
+    with open("example.yaml", "w") as fp:
+        fp.write('Kankri:\n    "[bB]": "6"\n    "[oO]": "9"')
+
+
 class KeyListener(object):
     def __init__(self, toggle_hotkey="ctrl+space", onUpdate=None, postProcess=None):
         self.toggle_hotkey = toggle_hotkey
@@ -121,6 +126,8 @@ class QuirkSettingsMgr(object):
         self.refresh()
 
     def refresh(self):
+        if not glob.glob("*.yaml"):
+            makeDemoYaml()
         for yamlfile in glob.glob("*.yaml"):
             name = yamlfile.replace(".yaml", "")
             with open(yamlfile, "r", encoding="utf-8") as fp:
